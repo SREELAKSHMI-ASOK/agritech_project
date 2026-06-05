@@ -43,13 +43,13 @@ plt.tight_layout()
 plt.savefig("reports/figures/scatter_yield.png", dpi=150)
 plt.close()
 
-# 3. Create the intermediate takeaways notes
+# 3. Create the intermediate takeaways notes linked to Mushroom Biology
 eda_notes = """# EDA Notes & Takeaways
 
-## Key Insights
-* **Humidity vs Yield:** Higher mushroom yields are observed when humidity stays consistently within the optimal 85-90% band.
-* **CO2 Levels:** High accumulation correlates with lower harvest weights, showing ventilation importance.
+## Key Biological Insights
+* **Humidity vs Yield (Mushroom Biology):** High yields cluster strictly around 85-90% humidity. Because mushroom fruiting bodies are mostly water and lack a protective cuticle layer, minor drops in humidity dry out the crop and halt development.
+* **CO2 Levels & Ventilation:** A notable negative correlation layout reveals that heavy accumulation of carbon dioxide correlates with stunted mushroom weights. Proper air circulation is required to trigger strong cap pin growth.
 """
 Path("reports/eda_notes.md").write_text(eda_notes, encoding="utf-8")
 
-print("Visualizations and notes generated successfully!")
+print("Visualizations and notes updated successfully!")
