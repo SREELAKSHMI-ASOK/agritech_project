@@ -4,8 +4,8 @@
 
 | Model | Test MAE | RMSE | R² | Training Time | Interpretability Notes |
 | :--- | :---: | :---: | :---: | :---: | :--- |
-| **Linear Regression** | 0.4170 | 0.5345 | 0.4287 | 0.07s | High interpretability; coefficients are easy to explain but non-linear relationships may be missed. |
-| **Default Random Forest** | 0.4386 | 0.5521 | 0.3904 | 0.10s | Ensemble of decision trees captures non-linear interactions but is harder to interpret. |
+| **Linear Regression** | 0.4170 | 0.5345 | 0.4287 | 0.05s | High interpretability; coefficients are easy to explain but non-linear relationships may be missed. |
+| **Default Random Forest** | 0.4386 | 0.5521 | 0.3904 | 0.12s | Ensemble of decision trees captures non-linear interactions but is harder to interpret. |
 | **Tuned Random Forest (Champion)** | 0.4434 | 0.5528 | 0.3889 | Optimized | Best predictive performance through tuned hyperparameters and feature interaction learning. |
 
 ---
