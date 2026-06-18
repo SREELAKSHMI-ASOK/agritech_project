@@ -15,3 +15,13 @@
 * **Test Dataset Size**: 73 rows
 * **Train Date Range**: 2024-01-01 to 2024-10-18
 * **Test Date Range**: 2024-10-19 to 2024-12-30
+
+## Run inference
+
+To run test predictions using the frozen pipeline artifacts, run the source script directly:
+
+```bash
+python src/predict.py
+
+## Working Application UI
+![Streamlit App Screenshot](reports/dashboard_screenshot.png)
