@@ -9,6 +9,9 @@ An interactive Web Application built using Streamlit to serve real-time greenhou
 * **Model Trust Signals:** A progressive disclosure expander panel sharing model baseline algorithms, evaluation error limits, and operational metrics.
 * **Defensive Error Handling:** Implemented robust user-friendly crash warnings and input boundary constraints.
 
+### Live Application Link
+👉 **Deploy URL:** [https://zelbytes-mushroom-yield-predict.streamlit.app/](https://zelbytes-mushroom-yield-predict.streamlit.app/)
+
 ### Working Application UI
 ![Streamlit App Screenshot](reports/dashboard_screenshot.png)
 
