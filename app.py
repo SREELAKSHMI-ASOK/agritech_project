@@ -1,35 +1,26 @@
 import streamlit as st
-from pathlib import Path
-import joblib
+import numpy as np
+import pandas as pd
 
 st.set_page_config(
     page_title="Mushroom Yield Forecast", 
     layout="centered"
 )
+
 st.title("Polyhouse Yield Predictor")
-st.caption("Agritech environmental forecasting from sensor data")
+st.caption("Zelbytes Agritech branding environmental forecasting from sensor data")
 
-
-@st.cache_resource
-def load_agritech_artifacts():
-    """
-    Caches the model and scaler loading so it only happens ONCE.
-    This keeps the UI lightning fast on the second interaction.
-    """
-    model_path = Path("models/champion.joblib")
-    scaler_path = Path("models/minmax_scaler.joblib")
-    
-    model = joblib.load(model_path)
-    scaler = joblib.load(scaler_path)
-    return model, scaler
-
-
+# Streamlit user-friendly error block using your required format
 try:
-    model, scaler = load_agritech_artifacts()
-except Exception as e:
-    st.error(f"Could not load model files: {e}")
+    from src.predict import make_prediction as predict_yield
+except FileNotFoundError:
+    st.error("Model artifacts missing. Run the training pipeline in `src/` first.")
+    st.stop()
+except ImportError:
+    st.error("Model artifacts missing. Run the training pipeline in `src/` first.")
+    st.stop()
 
-
+# Sidebar for interactive input controls
 with st.sidebar:
     st.header("Sensor Readings")
     
@@ -57,17 +48,39 @@ with st.sidebar:
         step=10
     )
 
+# Out-of-range warning alerts to users
+if temp > 32.0 or temp < 12.0 or humid < 55.0:
+    st.warning("⚠️ Warning: Selected settings fall outside standard safe polyhouse growth limits!")
 
+# Main view prediction button section with a spinner
 if st.button("Predict Yield"):
-    try:
-        
-        from src.predict import make_prediction
-        kg = make_prediction(temp, humid, co2)
-        
-        st.metric(
-            label="Estimated Daily Yield", 
-            value=f"{float(kg):.2f} kg"
-        )
-        
-    except Exception as e:
-        st.error(f"An error occurred during prediction: {e}")
+    with st.spinner("Calculating environmental prediction yields..."):
+        try:
+            kg = predict_yield(temp, humid, co2)
+            st.success("Prediction generated successfully!")
+            st.metric(
+                label="Estimated Daily Yield", 
+                value=f"{kg:.2f} kg"
+            )
+        except Exception as e:
+            st.error(f"Could not calculate prediction. Details: {e}")
+
+# Sensitivity chart section using your exact required snippet structure
+st.subheader("What-if: humidity sweep")
+temp_fixed, co2_fixed = temp, co2  # Uses your current slider choices as the stable baseline metrics
+humid_range = np.linspace(70, 98, 29)
+
+try:
+    preds = [predict_yield(temp_fixed, h, co2_fixed) for h in humid_range]
+    chart_df = pd.DataFrame({"Humidity (%)": humid_range, "Predicted yield (kg)": preds})
+    st.line_chart(chart_df, x="Humidity (%)", y="Predicted yield (kg)")
+except Exception as e:
+    st.info("Adjust input sliders above to generate real-time sensitivity tables.")
+
+# Metadata panel expander using your exact required format and real data values
+with st.expander("Model information"):
+    st.markdown(f"""
+    - **Model:** Tuned Random Forest
+    - **Test MAE:** 0.4434 kg/day
+    - **Training data:** Polyhouse sensors Jan–Dec 2024
+    """)

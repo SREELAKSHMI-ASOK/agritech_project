@@ -1,0 +1,10 @@
+# App Monitoring Plan
+
+## Sample Log Format
+We log every user input and prediction in a lightweight text file:
+`[Timestamp] Temp: 22.0, Humidity: 88.0, CO2: 920 -> Prediction: 13.83kg`
+
+## Model Retraining Triggers
+We will retrain the machine learning model if:
+1. The prediction error (MAE) goes above 2.0 kg/day from our base performance of 0.4434 kg/day.
+2. 30 days of new greenhouse data have been collected.
