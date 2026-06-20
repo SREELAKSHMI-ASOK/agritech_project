@@ -1,4 +1,4 @@
-# Agritech Project - Feature Engineering & Temporal Split
+# Agritech Project
 
 ## Interactive Yield Prediction Dashboard
 An interactive Web Application built using Streamlit to serve real-time greenhouse farm yield predictions from sensor logs.
