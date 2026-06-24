@@ -1,7 +1,7 @@
 # Mushroom Yield Forecast — Technical Report
 
 ## Executive summary
-[cite_start]Predict daily oyster mushroom yield from polyhouse temperature, humidity, and CO₂ using a tuned Random Forest (test MAE: 0.4434 kg/day)[cite: 6, 7].
+[cite_start]Predict daily oyster mushroom yield from polyhouse temperature, humidity, and CO₂ using a tuned Random Forest (test MAE: 0.4434 kg/day).
 
 ---
 
@@ -17,10 +17,10 @@ Growing mushrooms relies heavily on keeping the right environment. Predicting da
 
 | Feature | Description |
 | :--- | :--- |
-| `temperature_c` | [cite_start]Air temperature measured in Celsius [cite: 11] |
-| `humidity_pct` | [cite_start]Relative air humidity percentage [cite: 11] |
-| `co2_ppm` | [cite_start]Carbon dioxide concentration levels [cite: 11] |
-| `yield_kg` | [cite_start]Total daily weight of harvested mushrooms [cite: 11] |
+| `temperature_c` | [cite_start]Air temperature measured in Celsius |
+| `humidity_pct` | [cite_start]Relative air humidity percentage |
+| `co2_ppm` | [cite_start]Carbon dioxide concentration levels |
+| `yield_kg` | [cite_start]Total daily weight of harvested mushrooms |
 
 ---
 
