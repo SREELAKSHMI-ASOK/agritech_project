@@ -4,7 +4,7 @@ from src.predict import make_prediction as predict_yield
 
 def test_predict_returns_float_in_range():
     """Verifies that the prediction returns a float value inside the sanity band."""
-    result = predict_yield(22.0, 88.0, 920)
+    result = predict_yield(22.0, 88.0, 900)
     assert isinstance(result, float)
     assert 0 < result < 50  # sanity band for daily kg
 
