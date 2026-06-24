@@ -61,7 +61,7 @@
 
 If network conditions drop during live validation, this UI blueprint shows the runtime dashboard environment:
 
-![Streamlit Production UI Blueprint](dashboard_screenshot.png)
+![Streamlit Production UI Blueprint](reports/dashboard_screenshot.png)
 
 ---
 
