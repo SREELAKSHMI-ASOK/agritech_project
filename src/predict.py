@@ -47,7 +47,7 @@ def make_prediction(temperature_c: float, humidity_pct: float, co2_ppm: float) -
 if __name__ == "__main__":
     print("--- Running Pipeline Test ---")
     try:
-        sample_yield = make_prediction(temperature_c=22.0, humidity_pct=88.0, co2_ppm=920.0)
+        sample_yield = make_prediction(temperature_c=22.0, humidity_pct=88.0, co2_ppm=900.0)
         print("Pipeline Test Success!")
         print(f"Predicted Yield: {sample_yield:.2f} kg")
     except Exception as e:
