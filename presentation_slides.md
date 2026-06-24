@@ -18,7 +18,8 @@
 
 * **Dataset Overview:** 365 days of continuous polyhouse sensor data records.
 * **Monitored Features:** Temperature (°C), Relative Humidity (%), and Carbon Dioxide levels (ppm).
-* **Feature Engineering (`temp_humid_interaction`):** $$\text{Interaction Score} = \frac{\text{temperature\_c} \times \text{humidity\_pct}}{100}$$
+$$\text{Interaction Score} = \frac{\text{Temperature} \times \text{Humidity}}{100}$$
+*(Where Temperature is `temperature_c` and Humidity is `humidity_pct`)*
   Captures the combined stress/growth impact of ambient warmth and moisture on fungal development.
 
 ---
