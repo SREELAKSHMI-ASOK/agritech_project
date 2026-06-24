@@ -1,7 +1,7 @@
 # Mushroom Yield Forecast — Technical Report
 
 ## Executive summary
-[cite_start]Predict daily oyster mushroom yield from polyhouse temperature, humidity, and CO₂ using a tuned Random Forest (test MAE: 0.4434 kg/day).
+Predict daily oyster mushroom yield from polyhouse temperature, humidity, and CO₂ using a tuned Random Forest (test MAE: 0.4434 kg/day).
 
 ---
 
